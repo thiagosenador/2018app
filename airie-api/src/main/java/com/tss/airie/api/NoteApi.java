@@ -4,14 +4,15 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.tss.airie.model.Note;
 
-@Api(name = "note", version = "v1", title = "My app APIs", description = "APIs for my awesome app")
+@Api(name = "note", version = "v1")
 public class NoteApi {
 
-	@ApiMethod(name = "create", httpMethod = ApiMethod.HttpMethod.GET)
-	public Note createNote() {
+	@ApiMethod
+	public Note create() {
 
 		Note note = new Note();
 		note.setId(123456L);
+		note.setDescription("Thiago sinixtro");
 
 		return note;
 	}

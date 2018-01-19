@@ -1,14 +1,12 @@
 package com.tss.airie.model;
 
-import com.google.cloud.datastore.FullEntity;
-import com.google.cloud.datastore.IncompleteKey;
+import lombok.Data;
 
-public class Note extends DatastoreEntity {
+@Data
+public class Note {
 
-	public static final String KIND = "name";
+	private Long id;
 
-	@Override
-	public FullEntity<IncompleteKey> toDatastore(IncompleteKey key) {
-		return null;
-	}
+	private String description;
+
 }

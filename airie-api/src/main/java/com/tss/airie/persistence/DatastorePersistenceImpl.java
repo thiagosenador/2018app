@@ -6,7 +6,6 @@ import java.util.List;
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.DatastoreOptions;
 import com.google.cloud.datastore.Entity;
-import com.google.cloud.datastore.FullEntity;
 import com.google.cloud.datastore.IncompleteKey;
 import com.google.cloud.datastore.Key;
 import com.google.cloud.datastore.KeyFactory;
@@ -26,10 +25,10 @@ public class DatastorePersistenceImpl implements DatastorePersistence {
 	@Override
 	public Note createNote(Note note) {
 
-		IncompleteKey key = this.createKey(Note.KIND);
-		FullEntity<IncompleteKey> noteEntity = note.toDatastore(key);
+		// IncompleteKey key = this.createKey(Note.KIND);
+		// FullEntity<IncompleteKey> noteEntity = note.toDatastore(key);
 
-		this.datastore.add(noteEntity);
+		// this.datastore.add(noteEntity);
 
 		return note;
 	}
@@ -38,12 +37,12 @@ public class DatastorePersistenceImpl implements DatastorePersistence {
 
 		List<Note> notes = new ArrayList<Note>();
 
-		Query<Entity> query = Query.newEntityQueryBuilder().setKind(Note.KIND)
-				.setFilter(PropertyFilter.eq("user", user)).build();
+		Query<Entity> query = Query.newEntityQueryBuilder().setKind(null).setFilter(PropertyFilter.eq("user", user))
+				.build();
 		QueryResults<Entity> results = this.datastore.run(query);
 
 		while (results.hasNext()) {
-			Entity entity = results.next();
+			// Entity entity = results.next();
 			// notes.add(Note.fromDatastore(entity));
 		}
 
