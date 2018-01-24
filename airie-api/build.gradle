@@ -5,7 +5,7 @@ buildscript {
 
 	dependencies {
 		classpath 'com.google.cloud.tools:endpoints-framework-gradle-plugin:1.0.2'
-		classpath 'com.google.cloud.tools:appengine-gradle-plugin:1.3.3'
+		classpath 'com.google.cloud.tools:appengine-gradle-plugin:1.3.4'
 	}
 }
 
@@ -25,13 +25,12 @@ apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 apply plugin: 'com.google.cloud.tools.endpoints-framework-server'
 
-
 dependencies {
 	providedCompile 'com.google.appengine:appengine:+'
 	
 	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
-    compile group: 'com.google.endpoints', name: 'endpoints-framework', version: '2.0.10'
-    compile group: 'com.google.cloud', name: 'google-cloud-datastore', version: '1.14.0'
+    compile group: 'com.google.endpoints', name: 'endpoints-framework', version: '2.0.11'
+    compile group: 'com.google.cloud', name: 'google-cloud-datastore', version: '1.15.0'
     compile group: 'com.google.endpoints', name: 'endpoints-framework-auth', version: '1.0.6'
     compile group: 'com.google.endpoints', name: 'endpoints-management-control-appengine', version: '1.0.6'
 }
@@ -40,12 +39,11 @@ endpointsServer {
 	hostname = "airie-app.appspot.com"
 }
 
-
 appengine {
 	deploy {
 		stopPreviousVersion = true
 		promote = true
-		version = 'devstandard'
+		version = 'dev'
 	}
 }
 

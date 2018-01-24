@@ -21,7 +21,7 @@ public class NoteApi {
 
 		Note note = new Note();
 		note.setId(123456L);
-		note.setDescription("Thiago sinixtro");
+		note.setDescription("Hello world");
 
 		return note;
 	}

@@ -3,9 +3,9 @@
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
 	<runtime>java8</runtime>
 	<threadsafe>true</threadsafe>
-	<basic-scaling>
-		<max-instances>1</max-instances>
-	</basic-scaling>
+	<manual-scaling>
+		<instances>1</instances>
+	</manual-scaling>
 
 	<system-properties>
 		<property name="java.util.logging.config.file" value="WEB-INF/logging.properties" />
@@ -13,6 +13,6 @@
 
 	<env-variables>
 		<env-var name="ENDPOINTS_SERVICE_NAME" value="airie-app.appspot.com" />
-		<env-var name="ENDPOINTS_SERVICE_VERSION" value="2018-01-24r3" />
+		<env-var name="ENDPOINTS_SERVICE_VERSION" value="2018-01-24r6" />
 	</env-variables>
 </appengine-web-app>
