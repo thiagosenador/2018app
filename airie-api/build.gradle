@@ -29,9 +29,11 @@ apply plugin: 'com.google.cloud.tools.endpoints-framework-server'
 dependencies {
 	providedCompile 'com.google.appengine:appengine:+'
 	
-	compile 'org.projectlombok:lombok:1.16.20'
-    compile 'com.google.endpoints:endpoints-framework:2.0.10'
-    compile 'com.google.cloud:google-cloud-datastore:1.14.0'
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+    compile group: 'com.google.endpoints', name: 'endpoints-framework', version: '2.0.10'
+    compile group: 'com.google.cloud', name: 'google-cloud-datastore', version: '1.14.0'
+    compile group: 'com.google.endpoints', name: 'endpoints-framework-auth', version: '1.0.6'
+    compile group: 'com.google.endpoints', name: 'endpoints-management-control-appengine', version: '1.0.6'
 }
 
 endpointsServer {
@@ -43,7 +45,7 @@ appengine {
 	deploy {
 		stopPreviousVersion = true
 		promote = true
-		version = 'dev'
+		version = 'devstandard'
 	}
 }
 
