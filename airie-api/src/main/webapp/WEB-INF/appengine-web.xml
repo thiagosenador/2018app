@@ -13,6 +13,5 @@
 
 	<env-variables>
 		<env-var name="ENDPOINTS_SERVICE_NAME" value="airie-app.appspot.com" />
-		<env-var name="ENDPOINTS_SERVICE_VERSION" value="2018-01-24r6" />
 	</env-variables>
 </appengine-web-app>

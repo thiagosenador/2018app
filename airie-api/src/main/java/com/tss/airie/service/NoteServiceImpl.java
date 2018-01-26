@@ -16,5 +16,4 @@ public class NoteServiceImpl implements NoteService {
 	public void setDatastore(DatastorePersistence datastore) {
 		this.datastore = datastore;
 	}
-
 }

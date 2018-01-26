@@ -29,8 +29,9 @@ dependencies {
 	providedCompile 'com.google.appengine:appengine:+'
 	
 	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+	compile group: 'com.googlecode.objectify', name: 'objectify', version: '6.0a1'
+	compile group: 'com.google.endpoints', name: 'endpoints-framework-guice', version: '2.0.11'
     compile group: 'com.google.endpoints', name: 'endpoints-framework', version: '2.0.11'
-    compile group: 'com.google.cloud', name: 'google-cloud-datastore', version: '1.15.0'
     compile group: 'com.google.endpoints', name: 'endpoints-framework-auth', version: '1.0.6'
     compile group: 'com.google.endpoints', name: 'endpoints-management-control-appengine', version: '1.0.6'
 }
@@ -40,6 +41,10 @@ endpointsServer {
 }
 
 appengine {
+	run {
+		jvmFlags = ["-Xdebug", "-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005", "-Dappengine.fullscan.seconds=5"]
+	}
+	
 	deploy {
 		stopPreviousVersion = true
 		promote = true
