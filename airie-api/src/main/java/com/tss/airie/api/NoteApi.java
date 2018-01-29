@@ -9,7 +9,6 @@ import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.Named;
 import com.google.api.server.spi.config.Nullable;
 import com.google.api.server.spi.response.UnauthorizedException;
-import com.google.inject.Inject;
 import com.tss.airie.model.Note;
 import com.tss.airie.service.NoteService;
 
@@ -20,7 +19,6 @@ import com.tss.airie.service.NoteService;
 				jwksUri = "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com") })
 public class NoteApi {
 
-	@Inject
 	private NoteService noteService;
 
 	@ApiMethod(httpMethod = ApiMethod.HttpMethod.POST,

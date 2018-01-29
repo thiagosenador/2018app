@@ -20,29 +20,33 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<url-pattern>/_ah/api/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- Guice filter setup. -->
+	<!-- Add a filter that fetches the service config from service management. -->
 	<filter>
-		<filter-name>guiceFilter</filter-name>
-		<filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+		<filter-name>endpoints-api-configuration</filter-name>
+		<filter-class>com.google.api.control.ServiceManagementConfigFilter</filter-class>
+	</filter>
+
+	<!-- Add a filter that performs Endpoints logging and monitoring. -->
+	<filter>
+		<filter-name>endpoints-api-controller</filter-name>
+		<filter-class>com.google.api.control.extensions.appengine.GoogleAppEngineControlFilter</filter-class>
+		<init-param>
+			<param-name>endpoints.projectId</param-name>
+			<param-value>airie-app</param-value>
+		</init-param>
+		<init-param>
+			<param-name>endpoints.serviceName</param-name>
+			<param-value>airie-app.appspot.com</param-value>
+		</init-param>
 	</filter>
 
 	<filter-mapping>
-		<filter-name>guiceFilter</filter-name>
-		<url-pattern>/*</url-pattern>
+		<filter-name>endpoints-api-configuration</filter-name>
+		<servlet-name>EndpointsServlet</servlet-name>
 	</filter-mapping>
-
-	<!-- Objectfy filter setup. -->
-	<filter>
-		<filter-name>ObjectifyFilter</filter-name>
-		<filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
-	</filter>
 
 	<filter-mapping>
-		<filter-name>ObjectifyFilter</filter-name>
-		<url-pattern>/_ah/api/*</url-pattern>
+		<filter-name>endpoints-api-controller</filter-name>
+		<servlet-name>EndpointsServlet</servlet-name>
 	</filter-mapping>
-
-	<listener>
-		<listener-class>com.tss.airie.config.AirieGuiceListener</listener-class>
-	</listener>
 </web-app>
