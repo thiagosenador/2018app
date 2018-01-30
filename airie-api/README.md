@@ -25,3 +25,9 @@ gcloud auth application-default login
 ```sh
 gradle appenginerun
 ```
+
+```sh
+gcloud beta emulators datastore start
+gcloud beta emulators datastore env-init > set_vars.cmd && set_vars.cmd
+set DATASTORE_USE_PROJECT_ID_AS_APP_ID=true
+```

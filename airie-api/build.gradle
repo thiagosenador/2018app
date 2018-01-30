@@ -29,6 +29,7 @@ dependencies {
 	providedCompile 'com.google.appengine:appengine:+'
 	
 	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+	
 	compile group: 'com.googlecode.objectify', name: 'objectify', version: '6.0a1'
     compile group: 'com.google.endpoints', name: 'endpoints-framework', version: '2.0.11'
     compile group: 'com.google.endpoints', name: 'endpoints-framework-auth', version: '1.0.6'

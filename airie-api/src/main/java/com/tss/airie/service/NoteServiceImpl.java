@@ -5,15 +5,14 @@ import com.tss.airie.persistence.DatastorePersistence;
 
 public class NoteServiceImpl implements NoteService {
 
-	private DatastorePersistence datastore;
+	private final DatastorePersistence datastore;
+
+	public NoteServiceImpl(DatastorePersistence datastore) {
+		this.datastore = datastore;
+	}
 
 	@Override
 	public Note createNote(Note note) {
-
 		return this.datastore.createNote(note);
-	}
-
-	public void setDatastore(DatastorePersistence datastore) {
-		this.datastore = datastore;
 	}
 }

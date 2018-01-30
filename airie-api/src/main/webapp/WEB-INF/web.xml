@@ -49,4 +49,22 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<filter-name>endpoints-api-controller</filter-name>
 		<servlet-name>EndpointsServlet</servlet-name>
 	</filter-mapping>
+
+	<!-- Objectfy setup -->
+	<filter>
+		<filter-name>ObjectifyFilter</filter-name>
+		<filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>ObjectifyFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>com.tss.airie.config.AirieObjectifyListener</listener-class>
+	</listener>
 </web-app>

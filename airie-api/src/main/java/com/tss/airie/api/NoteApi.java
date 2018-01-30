@@ -10,6 +10,7 @@ import com.google.api.server.spi.config.Named;
 import com.google.api.server.spi.config.Nullable;
 import com.google.api.server.spi.response.UnauthorizedException;
 import com.tss.airie.model.Note;
+import com.tss.airie.service.AirieServicesFactory;
 import com.tss.airie.service.NoteService;
 
 @Api(name = "note",
@@ -19,7 +20,11 @@ import com.tss.airie.service.NoteService;
 				jwksUri = "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com") })
 public class NoteApi {
 
-	private NoteService noteService;
+	private final NoteService noteService;
+
+	public NoteApi() {
+		this.noteService = AirieServicesFactory.createNoteService();
+	}
 
 	@ApiMethod(httpMethod = ApiMethod.HttpMethod.POST,
 			authenticators = { EspAuthenticator.class },
