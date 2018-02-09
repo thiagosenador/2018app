@@ -1,4 +1,6 @@
 /.vs/
-/Airie.Android/bin/
-/Airie.Android/obj/
-Airie.Android/Airie.Android.csproj.user
+*.csproj.user
+/Airie/Airie.Android/bin/
+/Airie/Airie.Android/obj/
+/Airie/Airie.iOS/bin/
+/Airie/Airie.iOS/obj/
